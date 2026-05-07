@@ -1,58 +1,74 @@
-# AI Rules + Skills Pack (Traditional Chinese)
+# AI Rules + Skills Pack（繁體中文）
 
-這個倉庫提供可重用的 AI 規則與 Skills，適合放在 GitHub 版本控管並跨專案重複使用。
+可重複使用的 Cursor 規則與 Agent Skills，適合以 GitHub 版本控管並在多個專案間共用。
 
-## 內容
+## 倉庫結構
 
-- Cursor Rules: `.cursor/rules/response-style.mdc`
-- GitHub Copilot 規則: `.github/copilot-instructions.md`
-- Skills:
-  - `skills/explain-code/SKILL.md`
-  - `skills/modify-code/SKILL.md`
-  - `skills/logic-trace/SKILL.md`
+```text
+ai_rules_skills/
+├── .cursor/rules/          # Cursor 專案規則
+├── .github/                # GitHub Copilot 說明
+└── skills/                 # Skill 文件（版本控管用）
+```
+
+## 內容清單
+
+| 類型 | 路徑 |
+|------|------|
+| Cursor Rules | `.cursor/rules/response-style.mdc` |
+| GitHub Copilot | `.github/copilot-instructions.md` |
+| Skill：逐行／新手解釋 | `skills/explain-code/SKILL.md` |
+| Skill：修改程式 | `skills/modify-code/SKILL.md` |
+| Skill：邏輯追蹤 | `skills/logic-trace/SKILL.md` |
 
 ## 使用方式
 
-### 1) Cursor 專案規則
-把 `.cursor/rules/response-style.mdc` 複製到你的專案同路徑。
+### Cursor 專案規則
 
-### 2) GitHub Copilot 規則
-把 `.github/copilot-instructions.md` 複製到你的專案同路徑。
+將 `.cursor/rules/response-style.mdc` 複製到目標專案的相同相對路徑。
 
-### 3) Skills
-`skills/` 目錄用來集中管理 Skill 文件（版本控管用）。
-可依團隊流程同步到各開發者環境。
+### GitHub Copilot
 
-## 規則目標
+將 `.github/copilot-instructions.md` 複製到目標專案的相同相對路徑。
 
-1. 一律繁體中文
-2. 涉及程式碼時要附程式碼位置
-3. 需要修改程式時要說明加入位置並附程式碼
-4. 逐行解釋需新手友善，補充隱含邏輯與特殊語法
-5. 詢問邏輯時要附可追蹤的位置
+### Skills
 
+將 `skills/` 內容依團隊流程同步至各環境。**專案中**慣例路徑為：`.cursor/skills/<skill 名稱>/SKILL.md`（請以 Cursor 目前版本說明為準）。
 
+### 規則想達成的行為
 
-## 常見問題
-1. 工作區根目錄不一致（最常見）
-Agent 的專案 skill 是掛在「你目前在 Cursor 開啟的那個資料夾」底下的 .cursor/skills/，不是整個 htdocs 自動合併。
+1. 一律以繁體中文回覆  
+2. 涉及程式碼時附上程式碼位置與可引用片段  
+3. 若要改程式，說明插入／修改位置並附程式碼  
+4. 逐行解釋須對新手友善，並補上隱含邏輯與特殊語法  
+5. 詢問邏輯時附上可對應的程式位置  
 
-若工作區是 c:\xampp\htdocs\pidi_admin → 會讀
-pidi_admin\.cursor\skills\...（您放的位置才對）
-若工作區是 c:\xampp\htdocs（上層）→ 專案 skill 應在
-htdocs\.cursor\skills\...
-放在 pidi_admin\.cursor\skills\ 時，這個工作區可能完全不會載入，設定頁也可能仍顯示空白。
-請在 Cursor 看視窗標題或 File → Open Recent 確認目前開的是哪一層當 workspace。
+---
 
-2. 設定頁列出的是「另一種」Skill
-這個 Skills 介面上的 「New Skill」，多半是透過 UI 建立的 skill 清單；不一定會把你在 repo 裡手寫的 SKILL.md 全部列成清單。
-實務上仍可能在聊天用 / 或 @ 去叫出專案／個人 skill（依 Cursor 版本與設定而定）。
+## 常見問題（FAQ）
 
-所以：畫面上是空的，不等於檔案沒生效；但若你預期「列表裡要看到三個」，可能要改用 UI 建立，或確認官方說明是否會同步顯示檔案型 skill。
+### 1）工作區根目錄與載入位置不一致（最常見）
 
-3. 個人 skill 的路徑
-若要所有專案都能用，習慣上是放在使用者目錄下的個人 skills（請勿放進內建的 skills-cursor 資料夾）。專案內則維持 .cursor/skills/<名稱>/SKILL.md。
+Agent 會以「目前在 Cursor **開啟的那一層資料夾**」當工作區根目錄來找 `.cursor/skills/`，**不會**自動把整個 `htdocs` 底下所有子專案合併成同一組設定。
 
-建議您先確認一件事：目前 Cursor 開啟的工作區根目錄是 pidi_admin 還是 htdocs？若是 htdocs，把同一套 .cursor/skills 複製或連結到 htdocs\.cursor\skills\，或改以 pidi_admin 當唯一工作區開啟，行為才會一致。
+| 你開的工作區範例 | Skill 會從這裡讀 |
+|------------------|------------------|
+| `c:\xampp\htdocs\your_project` | `your_project\.cursor\skills\...` |
+| `c:\xampp\htdocs`（上層資料夾） | `htdocs\.cursor\skills\...` |
 
-若您補充「工作區路徑」與「Cursor 版本」，我可以更精準對應到您畫面上的狀況（我目前為 Ask 模式，無法代您搬檔或改設定；若要自動改目錄結構可改開 Agent 模式）
+若 Skill 放在子專案 `your_project\.cursor\skills\`，但你實際開的是上層 `htdocs`，該 Skill **可能完全不會載入**；設定頁也可能看似空白。**請依「視窗標題」或 File → Open Recent** 確認目前到底以哪一層當 workspace。
+
+### 2）設定頁面上的 Skill 列表
+
+介面上的「New Skill」等列表，多半是透過 UI 建立的清單，**不一定**會把 repo 裡手寫的每個 `SKILL.md` 都列進去。實務上仍可能在聊天中用 `/`、`@` 等方式引用（依 Cursor 版本與設定而定）。
+
+結論：**畫面上是空的，不代表檔案沒作用**；若你預期「列表一定要有某幾項」，請對照該版本的官方說明，或改用 UI 建立並確認是否會同步顯示。
+
+### 3）個人 skill 建議放哪？
+
+- **全專案共用**：放在使用者目錄下的個人 skills（請勿誤放進內建的 `skills-cursor` 資料夾）。  
+- **單一專案**：維持 `.cursor/skills/<名稱>/SKILL.md`。
+
+建議先釐清：**目前 Cursor 開啟的工作區根目錄是子專案還是 `htdocs`？** 若是 `htdocs`，請把同一套 `.cursor/skills` 放到 `htdocs\.cursor\skills\`，或改為**只以子專案資料夾**當唯一工作區開啟，行為才會一致。
+
+若你提供「工作區完整路徑」與「Cursor 版本」，可以進一步對照你畫面上的狀況。
