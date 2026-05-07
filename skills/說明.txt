@@ -1,0 +1,26 @@
+# ActiveTrigger
+
+## 主動觸發
+
+-網頁設計frontend-design
+
+
+# PassiveTrigger
+
+## 被動觸發
+
+-詢問資料
+
+-程式碼詢問
+
+-專案資料夾
+
+db-schema-helper
+
+explain-code
+
+google-adsense-remediation
+
+logic-trace
+
+modify-code
