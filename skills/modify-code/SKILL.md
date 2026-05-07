@@ -1,3 +1,10 @@
+---
+name: modify-code
+description: >-
+  在修改程式時標明檔案與插入點、提供可點擊程式碼片段、說明原因與影響範圍與相依檔案。在使用者要求新增功能、修 bug、調整邏輯或補上提示/Loading/錯誤處理時使用。
+disable-model-invocation: true
+---
+
 # Modify Code Skill
 
 ## Purpose

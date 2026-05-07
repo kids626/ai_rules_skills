@@ -1,3 +1,10 @@
+---
+name: explain-code
+description: >-
+  以新手友善方式逐行解釋程式碼，標註檔案位置與可點擊片段，並補充語法與隱含邏輯。在使用者要求逐行解釋、看不懂某段語法或需要釐清特殊寫法時使用。
+disable-model-invocation: true
+---
+
 # Explain Code Skill
 
 ## Purpose

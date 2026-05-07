@@ -1,3 +1,10 @@
+---
+name: logic-trace
+description: >-
+  梳理程式從入口到分支與資料流的執行路徑，並標註可點擊的程式碼位置。在使用者詢問頁面如何運作、搜尋或送出如何觸發、資料來源、或為何進入某分支時使用。
+disable-model-invocation: true
+---
+
 # Logic Trace Skill
 
 ## Purpose
