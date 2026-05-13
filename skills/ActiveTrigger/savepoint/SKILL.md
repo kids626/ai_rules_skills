@@ -3,15 +3,16 @@ name: savepoint
 description: >-
   Summarizes the current chat into three sections (initial question, guided
   steps, final outcome) and appends a reusable prompt block. Use when the user
-  types savepoint, Savepoint, or asks to save a conversation checkpoint to
-  CursorMemory for this project (pidi_admin).
+  types savepoint, Savepoint, or asks to save a conversation checkpoint under
+  md文件檔/CursorMemory. Ensures that folder exists under the project root
+  before writing.
 ---
 
 # Savepoint（對話存檔）
 
 ## 何時使用
 
-- 使用者訊息包含 **`savepoint`**（不分大小寫亦可），或明確說要「對話存檔／檢查點／整理這段對話」並指向 **`md文件檔/CursorMemory`**。
+- 使用者訊息包含 **`savepoint`**（不分大小寫亦可），或明確說要「對話存檔／檢查點／整理這段對話」，且目標為專案內的 **`md文件檔/CursorMemory`**（相對於**專案根目錄**）。
 
 ## 輸出格式（必須）
 
@@ -30,7 +31,10 @@ description: >-
 
 ## 寫入專案存檔（分支判斷）
 
-當使用者要求存檔或打出 **savepoint** 且希望寫入檔案時，**先判斷是否引用既有 savepoint 的 `.md`**（例如：貼上完整路徑、`@md文件檔/CursorMemory/某檔.md`、或明確寫出 `savepoint_*.md`／`savepoint.md` 要接續同一份）。
+當使用者要求存檔或打出 **savepoint** 且希望寫入檔案時：
+
+1. **目錄必備**：以**目前工作專案的根目錄**為準，若尚不存在 **`md文件檔/CursorMemory`**，**必須先建立**完整路徑（含父目錄 **`md文件檔`**），再進行讀寫；**不要**把檔案寫到錯誤的專案或僅在對話中「假裝」已存檔。
+2. **接續或新建**：**先判斷是否引用既有 savepoint 的 `.md`**（例如：貼上完整路徑、`@md文件檔/CursorMemory/某檔.md`、或明確寫出 `savepoint_*.md`／`savepoint.md` 要接續同一份）。
 
 ### A. 有引用既有 savepoint 檔（接續同一份）
 
