@@ -16,28 +16,55 @@
 ai_rules_skills/
 ├── .cursor/rules/          # Cursor 專案規則
 ├── .github/                # GitHub Copilot 說明
-└── skills/                 # Skill 原始檔（套用到專案時見「Skills」）
+├── skills/                 # Skill 原始檔（套用到專案時見「Skills」）
+│   ├── PassiveTrigger/     # 被動觸發（依對話情境／詢問類型）
+│   └── ActiveTrigger/      # 主動觸發（關鍵字、流程型技能）
+└── Prompt/                 # 提示詞與案例素材（可選）
 ```
 
-Ex:
-rules 請自行下載托放在AI IDE 的資料夾下:.cursor/rules/response-style.mdc
-skills請自行下載托放在AI IDE 的資料夾下:.cursor/skills/<名稱>/SKILL.md
+**範例：** 將規則檔複製到目標專案的 `.cursor/rules/`（例如 `response-style.mdc`、`savesop-trigger.mdc`）；將各 Skill 的資料夾或 `SKILL.md` 依 Cursor 官方說明放到 `.cursor/skills/<名稱>/`（路徑以當前 Cursor 版本文件為準）。
 
 ## 內容清單
 
+### Cursor Rules
+
 | 類型 | 路徑 |
 |------|------|
-| Cursor Rules | `.cursor/rules/response-style.mdc` |
-| GitHub Copilot | `.github/copilot-instructions.md` |
-| Skill（逐行／新手解釋） | `skills/explain-code/SKILL.md` |
-| Skill（修改程式） | `skills/modify-code/SKILL.md` |
-| Skill（邏輯追蹤） | `skills/logic-trace/SKILL.md` |
+| 回覆風格與程式碼引用慣例 | `.cursor/rules/response-style.mdc` |
+| `savesop` 關鍵字觸發存檔流程 | `.cursor/rules/savesop-trigger.mdc` |
+
+### GitHub Copilot
+
+| 類型 | 路徑 |
+|------|------|
+| Copilot 說明 | `.github/copilot-instructions.md` |
+
+### Skills（PassiveTrigger）
+
+| 說明 | 路徑 |
+|------|------|
+| 逐行／新手解釋 | `skills/PassiveTrigger/explain-code/SKILL.md` |
+| 修改程式 | `skills/PassiveTrigger/modify-code/SKILL.md` |
+| 邏輯追蹤 | `skills/PassiveTrigger/logic-trace/SKILL.md` |
+| 資料庫結構輔助 | `skills/PassiveTrigger/db-schema-helper/SKILL.md` |
+| Google AdSense 修復流程 | `skills/PassiveTrigger/google-adsense-remediation/SKILL.md` |
+
+### Skills（ActiveTrigger）
+
+| 說明 | 路徑 |
+|------|------|
+| 對話存檔 SOP（搭配 `savesop-trigger`） | `skills/ActiveTrigger/save-code-sop/SKILL.md` |
+| Savepoint／檢查點流程 | `skills/ActiveTrigger/savepoint/SKILL.md` |
+| 前端設計 | `skills/ActiveTrigger/frontend-design/SKILL.md` |
+| 前端設計（網頁子目錄副本） | `skills/ActiveTrigger/網頁/frontend-design/SKILL.md` |
+
+> 分類說明可另見 `skills/說明.txt`。
 
 ## 使用方式
 
 ### Cursor 專案規則
 
-將 `.cursor/rules/response-style.mdc` 複製到目標專案**相同相對路徑**。
+將 `.cursor/rules/` 內需要的 `.mdc` 複製到目標專案**相同相對路徑**。若使用 `savesop-trigger.mdc`，請一併維護對應的 `skills/ActiveTrigger/save-code-sop/SKILL.md`（或目標專案中等價路徑），並依該 skill 建立 `md文件檔/local_notes/` 等輸出目錄。
 
 ### GitHub Copilot
 
@@ -47,7 +74,7 @@ skills請自行下載托放在AI IDE 的資料夾下:.cursor/skills/<名稱>/SKI
 
 | 情境 | 做法 |
 |------|------|
-| 在本倉庫維護 | 使用 `skills/<名稱>/SKILL.md` |
+| 在本倉庫維護 | 使用 `skills/PassiveTrigger/<名稱>/SKILL.md` 或 `skills/ActiveTrigger/<名稱>/SKILL.md` |
 | 套用到其他專案 | 每個 skill 對應 `.cursor/skills/<名稱>/SKILL.md`（以 Cursor 當版文件為準） |
 
 再依團隊流程同步到各開發者環境。
