@@ -1,3 +1,12 @@
+要放哪裡？
+1）全機／所有專案都要（最常見）
+按 Ctrl + Shift + P 開啟命令面板
+輸入並選：Preferences: Open User Settings (JSON)（開啟使用者 settings.json）
+把檔案裡的鍵合併進去（與你現有的大括號 同一層，注意逗號；不要整份覆蓋掉你已有的設定）。
+實體路徑通常在（Windows）：
+
+C:\Users\你的使用者名稱\AppData\Roaming\Cursor\User\settings.json
+
 {
     "cursor.composer.usageSummaryDisplay": "always",
  
