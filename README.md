@@ -53,7 +53,7 @@ ai_rules_skills/
 
 | 說明 | 路徑 |
 |------|------|
-| 對話存檔 SOP（搭配 `savesop-trigger`） | `skills/ActiveTrigger/save-code-sop/SKILL.md` |
+| 對話存檔 SOP（搭配 `savesop-trigger`） | `skills/ActiveTrigger/save-template-sop/SKILL.md` |
 | Savepoint／檢查點流程 | `skills/ActiveTrigger/savepoint/SKILL.md` |
 | 前端設計 | `skills/ActiveTrigger/frontend-design/SKILL.md` |
 | 前端設計（網頁子目錄副本） | `skills/ActiveTrigger/網頁/frontend-design/SKILL.md` |
@@ -64,7 +64,7 @@ ai_rules_skills/
 
 ### Cursor 專案規則
 
-將 `.cursor/rules/` 內需要的 `.mdc` 複製到目標專案**相同相對路徑**。若使用 `savesop-trigger.mdc`，請一併維護對應的 `skills/ActiveTrigger/save-code-sop/SKILL.md`（或目標專案中等價路徑），並依該 skill 建立 `md文件檔/local_notes/` 等輸出目錄。
+將 `.cursor/rules/` 內需要的 `.mdc` 複製到目標專案**相同相對路徑**。若使用 `savesop-trigger.mdc`，請一併維護對應的 `skills/ActiveTrigger/save-template-sop/SKILL.md`（或目標專案中等價路徑），並依該 skill 建立 `md文件檔/local_notes/` 等輸出目錄。
 
 ### GitHub Copilot
 

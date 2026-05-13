@@ -1,0 +1,15 @@
+---
+description: 使用者輸入 save-code-review-sop 時依 save-code-review-sop skill 產出程式碼解釋筆記並落檔
+alwaysApply: true
+---
+
+# save-code-review-sop 觸發
+
+當使用者**本則訊息**在去除首尾空白後、**不分大小寫**等於 `save-code-review-sop` 時：
+
+1. 依專案內 `skills/ActiveTrigger/save-code-review-sop/SKILL.md` 的「作業順序」與「輸出範本」執行。
+2. 封存範圍為**截至目前為止的本對話**中與「程式碼意義／逐行說明／邏輯」相關之內容。
+3. 將完整 Markdown **寫入** repo 根目錄 `md文件檔/local_notes/`；目錄若不存在則先建立。檔名依該 skill「檔名規則」產生，以利查找。
+4. 回覆中註明**實際儲存檔案路徑**，勿只回覆確認而略過產檔。
+
+若訊息除 `save-code-review-sop` 外還有其他文字，則**不**啟用本條（改依一般對話與 skill 描述判斷）。

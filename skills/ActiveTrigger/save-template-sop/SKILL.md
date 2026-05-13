@@ -1,13 +1,13 @@
 ---
-name: save-code-sop
+name: save-template-sop
 description: >-
   將使用者與 AI 討論的程式流程整理成可重讀的重點摘要，並釐清網頁模板如何被呼叫與渲染、以及後端 API 的完整請求與回應鏈。
-  當使用者只輸入或小寫關鍵字 savesop（不分大小寫、trim 後為 savesop）時必須套用本 skill 並完整執行落檔。
-  亦在使用者要求保存／總結本次對話流程、釐清頁面怎麼組出來、或追 API 從路由到資料層時使用；或 @ 提及 save-code-sop、或提到「流程摘要／渲染流程／API 流程」時使用。
+  當使用者只輸入或小寫關鍵字 save-template-sop（不分大小寫、trim 後為 save-template-sop）時必須套用本 skill 並完整執行落檔。
+  亦在使用者要求保存／總結本次對話流程、釐清頁面怎麼組出來、或追 API 從路由到資料層時使用；或 @ 提及 save-template-sop、或提到「流程摘要／渲染流程／API 流程」時使用。
   預設將摘要 Markdown 寫入專案根目錄 `md文件檔/local_notes/`（目錄若不存在須先建立）。
 ---
 
-# Save Code SOP（流程記錄與摘要）
+# Save Template SOP（流程記錄與摘要）
 
 ## 目標
 
