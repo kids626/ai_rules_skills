@@ -1,11 +1,9 @@
 ---
 name: savepoint
 description: >-
-  Summarizes the current chat into three sections (initial question, guided
-  steps, final outcome) and appends a reusable prompt block. Use when the user
-  types savepoint, Savepoint, or asks to save a conversation checkpoint under
-  md文件檔/CursorMemory. Ensures that folder exists under the project root
-  before writing.
+  將目前對話整理為三大段落（初始問題、引導步驟、最終成果），並於末尾附上可重複使用的提示詞區塊。
+  當使用者輸入 savepoint、Savepoint（不分大小寫），或明確要求將對話檢查點／存檔寫入專案根目錄下之
+  md文件檔/CursorMemory 時使用。寫入前須確認該路徑存在；若不存在則先建立完整目錄再寫檔。
 ---
 
 # Savepoint（對話存檔）
