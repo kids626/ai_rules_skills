@@ -47,3 +47,7 @@ $A_Skills = "C:\xampp\htdocs\ai_rules_skills\skills\被動技能PassiveTrigger\g
 
 **請先**執行過上面區塊中的兩行 `New-Item -ItemType Directory -Force ...`（或確認 `.cursor\skills` 已存在），且 **`.cursor\rules` 與各 skill 名稱下不可先存在同名一般資料夾**。
 
+
+取消
+
+cmd /c rd "C:\xampp\htdocs\pidi_admin\.cursor\skills\google-adsense-remediation"; cmd /c rd "C:\xampp\htdocs\pidi_admin\.cursor\skills\logic-trace"; cmd /c rd "C:\xampp\htdocs\pidi_admin\.cursor\skills\modify-code"; cmd /c rd "C:\xampp\htdocs\pidi_admin\.cursor\skills\explain-code"; cmd /c rd "C:\xampp\htdocs\pidi_admin\.cursor\skills\db-schema-helper"; cmd /c rd "C:\xampp\htdocs\pidi_admin\.cursor\skills\savepoint"; cmd /c rd "C:\xampp\htdocs\pidi_admin\.cursor\skills\save-template-sop"; cmd /c rd "C:\xampp\htdocs\pidi_admin\.cursor\skills\save-code-review-sop"; cmd /c rd "C:\xampp\htdocs\pidi_admin\.cursor\rules"
